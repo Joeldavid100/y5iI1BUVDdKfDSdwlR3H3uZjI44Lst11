@@ -3,4 +3,4 @@ How to run our program:
 
 Took https://www.w3schools.com/howto/howto_js_popup.asp as reference to create pop ups.
 
-Video Link: 
+Video Link: https://www.youtube.com/watch?v=C6GLNB7lmj8
