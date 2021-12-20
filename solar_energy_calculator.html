@@ -1,63 +1,145 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@500&family=Titillium+Web:wght@300&display=swap"
-        rel="stylesheet">
-    <style>
-        body {
-            text-align: center;
-            margin-top: 50px;
-            margin-bottom: 100px;
-            margin-right: 100px;
-            margin-left: 100px;
-        }
-    </style>
-    <title>Green Energy</title>
-</head>
-
+<head> 
+    <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
 <script>
+  jQuery.fn.validateForm = function() {
+      var hours_used = parseInt($('#hours').val());
+      //validation
+      if(hours_used < 1 || isNaN(hours_used) || hours_used == ""){
+        alert('Please enter a valid number for hours used per day');
+        document.getElementById('hours').value = " ";
+        document.getElementById('hours').focus();
+        return false;
+      }else if (hours_used > 24){
+        alert('There is only 24 hours in a day');
+        document.getElementById('hours').value = " ";
+        document.getElementById('hours').focus();
+      }else{
+        return $(this).getEnergyCosts();
+      }
     
+    } //end validateForm function
+    //getEnergyCosts function
+    //calculates energy costs for appliance
+    //based on hours used per day
+    jQuery.fn.getEnergyCosts = function() {
+      var watts = parseInt($('#appliance').val());
+      var hours_used = parseInt($('#hours').val());
+      //cost per kilowatt per hour in Honduras
+      var cpk = 3.43;
+      //divide watts by 1000 to get kw
+      var kilowatt = watts / 1000;
+      kw_used = hours_used * kilowatt;
+      //calculate costs
+      cost_per_day = kw_used * cpk;
+      cost_per_week = cost_per_day * 7;
+      cost_per_month = cost_per_week * 4;
+      cost_per_year = cost_per_month * 12;
+
+      $('#kilowatts_used').text(kw_used.toFixed(2));
+
+      $('#cost_day').text(cost_per_day.toFixed(2));
+      $('#cost_week').text(cost_per_week.toFixed(2));
+      $('#cost_month').text(cost_per_month.toFixed(2));
+      $('#cost_year').text(cost_per_year.toFixed(2));
+
+      //return false to stop from reloading
+      $('#results').show();
+    }
+    jQuery.fn.reset_form = function() {
+      //resets variables when reset button is clicked
+      //possibly don't need this
+      watts = 0;
+      kw_used = 0;
+      cost_per_day = 0;
+      cost_per_week = 0;
+      cost_per_month = 0;
+      cost_per_year = 0;
+      document.getElementById('kilowatts_used').innerHTML = "";
+      document.getElementById('cost_day').innerHTML = "";
+      document.getElementById('cost_week').innerHTML = "";
+      document.getElementById('cost_month').innerHTML = "";
+      document.getElementById('cost_year').innerHTML = "";
+    }
 </script>
 
-<body style="background-color:#262929">
+<script type="text/javascript">
+  $(document).ready(function () {
+    $("#results").hide();
+    $(".submit").click(function () {
+      $(this).validateForm();
+      return false;
+    });
+    $(".reset").click(function () {
+      reset_form();
+      $("#results").hide();
+    });
+  });
+</script>
+</head>
 
-    <div style="font-family:'Roboto Slab'; color:rgb(255, 255, 255)">
-
-        <h1>Green Energy</h1>
-
-    </div>
-
-    <div style="font-size: x-large ; font-family:'Titillium Web'; color:white">
-
-        <img style="width:300px;"
-            src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Logo_Renewable_Energy_by_Melanie_Maecker-Tursun_V1_bgGreen.svg/1200px-Logo_Renewable_Energy_by_Melanie_Maecker-Tursun_V1_bgGreen.svg.png"
-            alt="">
-
-        <br>
-
-        <p>Clean or green energies are those that do not produce any type of pollution or CO2 emissions when generated.
-            In addition, many of them, although not all, do not run out, that is, they are renewable..</p>
-
-        <p>We have to use green energy because they are inexhaustible sources of energy, because you fight against
-            climate change, because green energy does not emit polluting gases or radioactive waste. By choosing green
-            energy you reduce your environmental footprint and CO2 emissions into the atmosphere.</p>
-        <br>
-
-
-        <p><b>Types of green energy</b>
-            <li>Solar energy, collects solar radiation through photovoltaic panels or solar collectors, and is
-                transformed into other forms of energy such as electricity or thermal energy.</li>
-            <li>Geothermal energy, it is obtained by taking advantage of the natural heat from the interior of the earth
-                that is transmitted through the bodies of hot rock, where processes of interaction of fluids and rocks
-                are raised, giving rise to geothermal systems.</li>
-            <li>Tidal energy, through the tides the energy of the movement of the waves is transformed into electrical
-                energy with the help of an alternator.</li>
-            <li>Wind power, it is the energy obtained from the force of the wind, and through the kinetic energy
-                generated by the effect of air currents, it is converted into other useful energy signatures.</li>
-            <li>Hydraulic energy, it is obtained from the accumulated power of the waterfalls with turbines that move an
-                electric generator.</li>
-        </p>
+<body>
+  <div id="energy-calculator">
+    <form id="e-calc">
+      <div class="element">
+        <label for="appliance">Select an appliance</label>
+        <select name="appliance" id="appliance" tabindex="1">
+          <option value="2000">Oven</option>
+          <option value="1100">Microwave</option>
+          <option value="1500">Portable Heater</option>
+          <option value="200">Desktop Computer</option>
+          <option value="40">Laptop Computer</option>
+          <option value="150">Games Consoles (PS3 / X Box)</option>
+          <option value="16">Games Console (Wii)</option>
+          <option value="70">Television 19 inch</option>
+          <option value="150">Television 25 inch</option>
+          <option value="450">Hoover</option>
+          <option value="500">Fridge/Freezer</option>
+          <option value="3500">Tumble Dryer</option>
+          <option value="700">Washing Machine</option>
+          <option value="1350">Dishwasher</option>
+          <option value="11">Energy Saving Light Bulb</option>
+          <option value="23">Digital TV Box</option>
+          <option value="1000">Hair Dryer</option>
+          <option value="123">Straighteners</option>
+          <option value="35">Stereo System</option>
+          <option value="35">DVD Player</option>
+        </select>
+      </div>
+      <div class="element">
+        <label for="hours"
+          >How many hours on average do you use the appliance per day?</label
+        >
+        <input type="text" id="hours" tabindex="2" size="2" />
+      </div>
+      <div class="element">
+        <input type="submit" value="Get Costs" class="submit" tabindex="3" />
+      </div>
+      <!-- results -->
+      <div id="results">
+        <div class="element">
+          <span class="label">Kilowatts used per day:</span>
+          <div id="kilowatts_used" class="results_box"></div>
+        </div>
+        <div class="element">
+          <span class="label">Total cost per day is:</span>
+          <div id="cost_day" class="results_box"></div>
+        </div>
+        <div class="element">
+          <span class="label">Total cost per week is:</span>
+          <div id="cost_week" class="results_box"></div>
+        </div>
+        <div class="element">
+          <span class="label">Total cost per month is:</span>
+          <div id="cost_month" class="results_box"></div>
+        </div>
+        <div class="element">
+          <span class="label">Total cost per year is:</span>
+          <div id="cost_year" class="results_box"></div>
+        </div>
+        <div class="element">
+          <input type="reset" value="Reset Form" class="reset" />
+        </div>
+      </div>
+    </form>
+  </div>
+</body>
