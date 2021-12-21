@@ -7,77 +7,7 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@500&family=Titillium+Web:wght@300&display=swap"
         rel="stylesheet">
-    <style>
-        body {
-            text-align: center;
-            margin-top: 50px;
-            margin-bottom: 100px;
-            margin-right: 100px;
-            margin-left: 100px;
-        }
-
-        .popup {
-            position: relative;
-            display: inline-block;
-            cursor: pointer;
-            -webkit-user-select: none;
-            -moz-user-select: none;
-            -ms-user-select: none;
-            user-select: none;
-        }
-
-        .popup .popuptext {
-            visibility: hidden;
-            width: 400px;
-            background-color: rgb(84, 117, 89);
-            color: #fff;
-            text-align: center;
-            border-radius: 6px;
-            padding: 8px;
-            position: absolute;
-            z-index: 1;
-            bottom: 125%;
-            left: 50%;
-            margin-left: -200px;
-        }
-
-        .popup .popuptext::after {
-            content: "";
-            position: absolute;
-            top: 100%;
-            left: 50%;
-            margin-left: -5px;
-            border-width: 5px;
-            border-style: solid;
-            border-color: rgb(84, 117, 89) transparent transparent transparent;
-        }
-
-        .popup .show {
-            visibility: visible;
-            -webkit-animation: fadeIn 1s;
-            animation: fadeIn 1s;
-        }
-
-        @-webkit-keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-
-            to {
-                opacity: 1;
-            }
-        }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-
-            to {
-                opacity: 1;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="styles.css">
     <title>Green Energy</title>
 </head>
 
@@ -144,15 +74,15 @@
     }
 </script>
 
-<body style="background-color:#262929">
+<body>
 
-    <div style="font-family:'Roboto Slab'; color:rgb(255, 255, 255)">
+    <div class = heading>
 
         <h1>Green Energy</h1>
 
     </div>
 
-    <div style="font-size: x-large ; font-family:'Titillium Web'; color:white">
+    <div>
 
         <img style="width:300px;"
             src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Logo_Renewable_Energy_by_Melanie_Maecker-Tursun_V1_bgGreen.svg/1200px-Logo_Renewable_Energy_by_Melanie_Maecker-Tursun_V1_bgGreen.svg.png"
@@ -234,28 +164,32 @@
 
         <p>
         <div class="popup" onclick="myFunction4()">Binary Cycle
-            <span class="popuptext" id="myPopup4">A binary cycle in thermodynamics is a method of power generation that uses two circuits, one high temperature and one lower temperature.
-                <img style="width:300px; padding-top: 15px;"
-                    src="https://openei.org/w/images/0/01/Binaryplant.gif"
+            <span class="popuptext" id="myPopup4">A binary cycle in thermodynamics is a method of power generation that
+                uses two circuits, one high temperature and one lower temperature.
+                <img style="width:300px; padding-top: 15px;" src="https://openei.org/w/images/0/01/Binaryplant.gif"
                     alt=""></span>
         </div>
         </p>
 
         <p>
         <div class="popup" onclick="myFunction5()">Flash Steam
-            <span class="popuptext" id="myPopup5">Flash steam plants take high-pressure hot water from deep inside the earth and convert it to steam to drive generator turbines. When the steam cools, it condenses to water and is injected back into the ground to be used again. Most geothermal power plants are flash steam plants.
-                <img style="width:300px; padding-top: 15px;"
-                    src="https://openei.org/w/images/3/3e/Flashplant.gif"
+            <span class="popuptext" id="myPopup5">Flash steam plants take high-pressure hot water from deep inside the
+                earth and convert it to steam to drive generator turbines. When the steam cools, it condenses to water
+                and is injected back into the ground to be used again. Most geothermal power plants are flash steam
+                plants.
+                <img style="width:300px; padding-top: 15px;" src="https://openei.org/w/images/3/3e/Flashplant.gif"
                     alt=""></span>
         </div>
         </p>
 
         <p>
         <div class="popup" onclick="myFunction6()">Dry Steam
-            <span class="popuptext" id="myPopup6">Dry steam plants use hydrothermal fluids that are primarily steam. The steam travels directly to a turbine, which drives a generator that produces electricity. The steam eliminates the need to burn fossil fuels to run the turbine (also eliminating the need to transport and store fuels).
+            <span class="popuptext" id="myPopup6">Dry steam plants use hydrothermal fluids that are primarily steam. The
+                steam travels directly to a turbine, which drives a generator that produces electricity. The steam
+                eliminates the need to burn fossil fuels to run the turbine (also eliminating the need to transport and
+                store fuels).
 
-                <img style="width:300px; padding-top: 15px;"
-                    src="https://openei.org/w/images/2/2d/Drysteam.gif"
+                <img style="width:300px; padding-top: 15px;" src="https://openei.org/w/images/2/2d/Drysteam.gif"
                     alt=""></span>
         </div>
         </p>
@@ -269,16 +203,19 @@
 
         <p>
         <div class="popup" onclick="myFunction7()">Horizontal Axis Turbine
-            <span class="popuptext" id="myPopup7">Horizontal axis turbines extract energy from moving water in much the same way as wind turbines extract energy from moving air. The tidal stream causes the rotors to rotate around the horizontal axis and generate power.
+            <span class="popuptext" id="myPopup7">Horizontal axis turbines extract energy from moving water in much the
+                same way as wind turbines extract energy from moving air. The tidal stream causes the rotors to rotate
+                around the horizontal axis and generate power.
                 <img style="width:300px; padding-top: 15px;"
-                    src="http://rosspmiller.weebly.com/uploads/1/7/3/9/17393331/6948915.jpg"
-                    alt=""></span>
+                    src="http://rosspmiller.weebly.com/uploads/1/7/3/9/17393331/6948915.jpg" alt=""></span>
         </div>
         </p>
 
         <p>
         <div class="popup" onclick="myFunction8()">Oscillating Hydrofoil
-            <span class="popuptext" id="myPopup8">A hydrofoil is attached to an oscillating arm. The tidal current flowing either side of a wing results in lift. This motion then drives fluid in a hydraulic system to be converted into electricity.
+            <span class="popuptext" id="myPopup8">A hydrofoil is attached to an oscillating arm. The tidal current
+                flowing either side of a wing results in lift. This motion then drives fluid in a hydraulic system to be
+                converted into electricity.
                 <img style="width:300px; padding-top: 15px;"
                     src="https://www.researchgate.net/profile/Joop-Coolen/publication/332877010/figure/fig4/AS:755544247775239@1557147194526/Oscillating-hydrofoil-TEC-Source-http-wwwaquaretcom.png"
                     alt=""></span>
@@ -287,7 +224,10 @@
 
         <p>
         <div class="popup" onclick="myFunction9()">Enclosed Tips (Venturii)
-            <span class="popuptext" id="myPopup9">Venturi Effect devices house the device in a duct which concentrates the tidal flow passing through the turbine. The funnel-like collecting device sits submerged in the tidal current. The flow of water can drive a turbine directly or the induced pressure differential in the system can drive an air-turbine.
+            <span class="popuptext" id="myPopup9">Venturi Effect devices house the device in a duct which concentrates
+                the tidal flow passing through the turbine. The funnel-like collecting device sits submerged in the
+                tidal current. The flow of water can drive a turbine directly or the induced pressure differential in
+                the system can drive an air-turbine.
                 <img style="width:350px; padding-top: 15px;"
                     src="https://www.triatek.com//wp-content/uploads/2015/07/Stainless-Steel-Venturi-Valve.png"
                     alt=""></span>
@@ -303,7 +243,8 @@
 
         <p>
         <div class="popup" onclick="myFunction10()">Eolics
-            <span class="popuptext" id="myPopup10">Wind energy is the energy obtained from the wind, that is, it is the use of the kinetic energy of the air masses.
+            <span class="popuptext" id="myPopup10">Wind energy is the energy obtained from the wind, that is, it is the
+                use of the kinetic energy of the air masses.
                 <img style="width:200px; padding-top: 15px;"
                     src="https://upload.wikimedia.org/wikipedia/commons/8/8b/GreenMountainWindFarm_Fluvanna_2004.jpg"
                     alt=""></span>
@@ -312,7 +253,10 @@
 
         <p>
         <div class="popup" onclick="myFunction11()">Wind Turbines
-            <span class="popuptext" id="myPopup11">Wind turbines work on a simple principle: instead of using electricity to make wind—like a fan—wind turbines use wind to make electricity. Wind turns the propeller-like blades of a turbine around a rotor, which spins a generator, which creates electricity.Perhaps of the eolics wind turbines can be portable.
+            <span class="popuptext" id="myPopup11">Wind turbines work on a simple principle: instead of using
+                electricity to make wind—like a fan—wind turbines use wind to make electricity. Wind turns the
+                propeller-like blades of a turbine around a rotor, which spins a generator, which creates
+                electricity.Perhaps of the eolics wind turbines can be portable.
                 <img style="width:200px; padding-top: 15px;"
                     src="https://images.squarespace-cdn.com/content/v1/503564dc84ae416826d0a41f/1597088350111-MLKIQVFBYK54DWRT50P9/98086565_3057788064243538_6747405102463582208_o.jpg?format=1000w"
                     alt=""></span>
@@ -321,10 +265,11 @@
 
         <p>
         <div class="popup" onclick="myFunction12()">Windmills
-            <span class="popuptext" id="myPopup12">A windmill is a structure that converts wind energy into rotational energy by means of vanes called sails or blades, specifically for grinding grain, but the term also extends to wind pumps, wind turbines, and other applications.
+            <span class="popuptext" id="myPopup12">A windmill is a structure that converts wind energy into rotational
+                energy by means of vanes called sails or blades, specifically for grinding grain, but the term also
+                extends to wind pumps, wind turbines, and other applications.
                 <img style="width:200px; padding-top: 15px;"
-                    src="https://upload.wikimedia.org/wikipedia/commons/8/8c/Moulin00tonemapped.jpg"
-                    alt=""></span>
+                    src="https://upload.wikimedia.org/wikipedia/commons/8/8c/Moulin00tonemapped.jpg" alt=""></span>
         </div>
         </p>
 
@@ -337,7 +282,8 @@
 
         <p>
         <div class="popup" onclick="myFunction13()">Dishwashers
-            <span class="popuptext" id="myPopup13">They use hydraulics to increase water pressure for better cleaning. Dishwashers fitted with hydraulics are also generally quieter.
+            <span class="popuptext" id="myPopup13">They use hydraulics to increase water pressure for better cleaning.
+                Dishwashers fitted with hydraulics are also generally quieter.
                 <img style="width:300px; padding-top: 15px;"
                     src="https://www.ikea.com/us/en/images/products/essentiell-built-in-dishwasher-black-stainless-steel__0854909_pe780738_s5.jpg?f=s"
                     alt=""></span>
@@ -346,7 +292,8 @@
 
         <p>
         <div class="popup" onclick="myFunction14()">Amusement Park Rides
-            <span class="popuptext" id="myPopup14">Hydraulic machines provide and control motion for attractions such as the Ferris Wheel.
+            <span class="popuptext" id="myPopup14">Hydraulic machines provide and control motion for attractions such as
+                the Ferris Wheel.
                 <img style="width:300px; padding-top: 15px;"
                     src="https://media.npr.org/assets/img/2021/10/26/gettyimages-1194524615_sq-972b7802bd5a897861640c76900c982e71cbc818.jpg"
                     alt=""></span>
@@ -355,7 +302,8 @@
 
         <p>
         <div class="popup" onclick="myFunction15()">Barber Chairs
-            <span class="popuptext" id="myPopup15">The pump that the barber steps on uses a hydraulic lift mechanism to adjust the chair’s height accordingly.
+            <span class="popuptext" id="myPopup15">The pump that the barber steps on uses a hydraulic lift mechanism to
+                adjust the chair’s height accordingly.
                 <img style="width:300px; padding-top: 15px;"
                     src="https://www.spaandequipment.com/images/P/Classic%20Barber%20Chair%20Cover%201000px.png"
                     alt=""></span>

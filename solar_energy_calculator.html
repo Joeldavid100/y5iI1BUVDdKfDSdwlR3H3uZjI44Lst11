@@ -1,145 +1,161 @@
-<head> 
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@500&family=Titillium+Web:wght@300&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <title>Energy Calculator</title>
     <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
-<script>
-  jQuery.fn.validateForm = function() {
-      var hours_used = parseInt($('#hours').val());
-      //validation
-      if(hours_used < 1 || isNaN(hours_used) || hours_used == ""){
-        alert('Please enter a valid number for hours used per day');
-        document.getElementById('hours').value = " ";
-        document.getElementById('hours').focus();
-        return false;
-      }else if (hours_used > 24){
-        alert('There is only 24 hours in a day');
-        document.getElementById('hours').value = " ";
-        document.getElementById('hours').focus();
-      }else{
-        return $(this).getEnergyCosts();
-      }
-    
-    } //end validateForm function
-    //getEnergyCosts function
-    //calculates energy costs for appliance
-    //based on hours used per day
-    jQuery.fn.getEnergyCosts = function() {
-      var watts = parseInt($('#appliance').val());
-      var hours_used = parseInt($('#hours').val());
-      //cost per kilowatt per hour in Honduras
-      var cpk = 3.43;
-      //divide watts by 1000 to get kw
-      var kilowatt = watts / 1000;
-      kw_used = hours_used * kilowatt;
-      //calculate costs
-      cost_per_day = kw_used * cpk;
-      cost_per_week = cost_per_day * 7;
-      cost_per_month = cost_per_week * 4;
-      cost_per_year = cost_per_month * 12;
+    <script>
+        jQuery.fn.validateForm = function () {
+            var hours_used = parseInt($('#hours').val());
+            //validation
+            if (hours_used < 1 || isNaN(hours_used) || hours_used == "") {
+                alert('Please enter a valid number for hours used per day');
+                document.getElementById('hours').value = " ";
+                document.getElementById('hours').focus();
+                return false;
+            } else if (hours_used > 24) {
+                alert('There is only 24 hours in a day');
+                document.getElementById('hours').value = " ";
+                document.getElementById('hours').focus();
+            } else {
+                return $(this).getEnergyCosts();
+            }
 
-      $('#kilowatts_used').text(kw_used.toFixed(2));
+        }
+        //getEnergyCosts function calculates energy costs based on selected appliance and hours used
+        jQuery.fn.getEnergyCosts = function () {
+            var watts = parseInt($('#appliance').val());
+            var hours_used = parseInt($('#hours').val());
 
-      $('#cost_day').text(cost_per_day.toFixed(2));
-      $('#cost_week').text(cost_per_week.toFixed(2));
-      $('#cost_month').text(cost_per_month.toFixed(2));
-      $('#cost_year').text(cost_per_year.toFixed(2));
+            //cost per kilowatt per hour in Honduras
+            var lpsPerKW = 3.43;
 
-      //return false to stop from reloading
-      $('#results').show();
-    }
-    jQuery.fn.reset_form = function() {
-      //resets variables when reset button is clicked
-      //possibly don't need this
-      watts = 0;
-      kw_used = 0;
-      cost_per_day = 0;
-      cost_per_week = 0;
-      cost_per_month = 0;
-      cost_per_year = 0;
-      document.getElementById('kilowatts_used').innerHTML = "";
-      document.getElementById('cost_day').innerHTML = "";
-      document.getElementById('cost_week').innerHTML = "";
-      document.getElementById('cost_month').innerHTML = "";
-      document.getElementById('cost_year').innerHTML = "";
-    }
-</script>
+            //divide watts by 1000 to get kw
+            var kilowatt = watts / 1000;
+            var kw_used = hours_used * kilowatt;
 
-<script type="text/javascript">
-  $(document).ready(function () {
-    $("#results").hide();
-    $(".submit").click(function () {
-      $(this).validateForm();
-      return false;
-    });
-    $(".reset").click(function () {
-      reset_form();
-      $("#results").hide();
-    });
-  });
-</script>
+            //calculate costs
+            cost_per_day = kw_used * lpsPerKW;
+            cost_per_week = cost_per_day * 7;
+            cost_per_month = cost_per_week * 4;
+            cost_per_year = cost_per_month * 12;
+
+            $('#kilowatts_used').text(kw_used.toFixed(2));
+            $('#cost_day').text(cost_per_day.toFixed(2));
+            $('#cost_week').text(cost_per_week.toFixed(2));
+            $('#cost_month').text(cost_per_month.toFixed(2));
+            $('#cost_year').text(cost_per_year.toFixed(2));
+            $('#results').show();
+        }
+        jQuery.fn.reset_form = function () {
+            //resets variables when reset button is clicked
+            watts = 0;
+            kw_used = 0;
+            cost_per_day = 0;
+            cost_per_week = 0;
+            cost_per_month = 0;
+            cost_per_year = 0;
+            document.getElementById('kilowatts_used').innerHTML = "";
+            document.getElementById('cost_day').innerHTML = "";
+            document.getElementById('cost_week').innerHTML = "";
+            document.getElementById('cost_month').innerHTML = "";
+            document.getElementById('cost_year').innerHTML = "";
+        }
+    </script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#results").hide();
+            $(".submit").click(function () {
+                $(this).validateForm();
+
+                //Return False to stop reloading
+                return false;
+            });
+            $(".reset").click(function () {
+                reset_form();
+                $("#results").hide();
+            });
+        });
+    </script>
 </head>
 
 <body>
-  <div id="energy-calculator">
-    <form id="e-calc">
-      <div class="element">
-        <label for="appliance">Select an appliance</label>
-        <select name="appliance" id="appliance" tabindex="1">
-          <option value="2000">Oven</option>
-          <option value="1100">Microwave</option>
-          <option value="1500">Portable Heater</option>
-          <option value="200">Desktop Computer</option>
-          <option value="40">Laptop Computer</option>
-          <option value="150">Games Consoles (PS3 / X Box)</option>
-          <option value="16">Games Console (Wii)</option>
-          <option value="70">Television 19 inch</option>
-          <option value="150">Television 25 inch</option>
-          <option value="450">Hoover</option>
-          <option value="500">Fridge/Freezer</option>
-          <option value="3500">Tumble Dryer</option>
-          <option value="700">Washing Machine</option>
-          <option value="1350">Dishwasher</option>
-          <option value="11">Energy Saving Light Bulb</option>
-          <option value="23">Digital TV Box</option>
-          <option value="1000">Hair Dryer</option>
-          <option value="123">Straighteners</option>
-          <option value="35">Stereo System</option>
-          <option value="35">DVD Player</option>
-        </select>
-      </div>
-      <div class="element">
-        <label for="hours"
-          >How many hours on average do you use the appliance per day?</label
-        >
-        <input type="text" id="hours" tabindex="2" size="2" />
-      </div>
-      <div class="element">
-        <input type="submit" value="Get Costs" class="submit" tabindex="3" />
-      </div>
-      <!-- results -->
-      <div id="results">
-        <div class="element">
-          <span class="label">Kilowatts used per day:</span>
-          <div id="kilowatts_used" class="results_box"></div>
-        </div>
-        <div class="element">
-          <span class="label">Total cost per day is:</span>
-          <div id="cost_day" class="results_box"></div>
-        </div>
-        <div class="element">
-          <span class="label">Total cost per week is:</span>
-          <div id="cost_week" class="results_box"></div>
-        </div>
-        <div class="element">
-          <span class="label">Total cost per month is:</span>
-          <div id="cost_month" class="results_box"></div>
-        </div>
-        <div class="element">
-          <span class="label">Total cost per year is:</span>
-          <div id="cost_year" class="results_box"></div>
-        </div>
-        <div class="element">
-          <input type="reset" value="Reset Form" class="reset" />
-        </div>
-      </div>
-    </form>
-  </div>
+    <div class=heading>
+        <h2>Energy Calculator</h2>
+    </div>
+
+    <div id="energy-calculator">
+        <form id="e-calc">
+            <div class="element">
+                <label for="appliance">
+                    <p style="margin: 0; padding: 0;">Select an appliance</p>
+                </label>
+                <select name="appliance" id="appliance" tabindex="1">
+                    <option value="350">Refrigerator</option>
+                    <option value="1200">Microwave</option>
+                    <option value="800">Toaster</option>
+                    <option value="60">Fan</option>
+                    <option value="40">Laptop Computer</option>
+                    <option value="150">Games Consoles (PS3 / X Box)</option>
+                    <option value="16">Games Console (Wii)</option>
+                    <option value="70">Television 19 inch</option>
+                    <option value="150">Television 25 inch</option>
+                    <option value="450">Hoover</option>
+                    <option value="500">Fridge/Freezer</option>
+                    <option value="3500">Tumble Dryer</option>
+                    <option value="700">Washing Machine</option>
+                    <option value="1350">Dishwasher</option>
+                    <option value="11">Energy Saving Light Bulb</option>
+                    <option value="23">Digital TV Box</option>
+                    <option value="1000">Hair Dryer</option>
+                    <option value="123">Straighteners</option>
+                    <option value="35">Stereo System</option>
+                    <option value="35">DVD Player</option>
+                </select>
+            </div>
+
+            <br>
+
+            <div class="element">
+                <label for="hours">
+                    <p style="margin: 0; padding: 0;">How many hours on average do you use the appliance per day?</p>
+                </label>
+                <input type="text" id="hours" tabindex="2" size="2" />
+            </div>
+            <div class="element">
+                <br>
+                <input type="submit" value="Get Costs" class="submit" tabindex="3" />
+            </div>
+            <!-- results -->
+            <div id="results">
+                <div class="element">
+                    <span class="label">Kilowatts used per day:</span>
+                    <div id="kilowatts_used" class="results_box"></div>
+                </div>
+                <div class="element">
+                    <span class="label">Total cost per day is:</span>
+                    <div id="cost_day" class="results_box"></div>
+                </div>
+                <div class="element">
+                    <span class="label">Total cost per week is:</span>
+                    <div id="cost_week" class="results_box"></div>
+                </div>
+                <div class="element">
+                    <span class="label">Total cost per month is:</span>
+                    <div id="cost_month" class="results_box"></div>
+                </div>
+                <div class="element">
+                    <span class="label">Total cost per year is:</span>
+                    <div id="cost_year" class="results_box"></div>
+                </div>
+                <div class="element">
+                    <input type="reset" value="Reset Form" class="reset" />
+                </div>
+            </div>
+        </form>
+    </div>
 </body>
