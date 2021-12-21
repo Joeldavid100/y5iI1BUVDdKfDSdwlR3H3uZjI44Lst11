@@ -3,7 +3,9 @@ How to run our program:
 
 Took https://www.w3schools.com/howto/howto_js_popup.asp as reference to create pop ups.
 
-Video Link: https://www.youtube.com/watch?v=C6GLNB7lmj8
+Video Link (Old): https://www.youtube.com/watch?v=C6GLNB7lmj8
+
+NEW Video Link: https://youtu.be/dLdMV0KJnj4
 
 ENEE Source for Power Usage: http://www.enee.hn/index.php/atencion-al-cliente/110-consumo-electrico
 
