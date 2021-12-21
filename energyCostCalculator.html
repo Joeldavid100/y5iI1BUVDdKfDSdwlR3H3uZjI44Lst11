@@ -54,20 +54,6 @@
             $('#cost_year').text(cost_per_year.toFixed(2));
             $('#results').show();
         }
-        jQuery.fn.reset_form = function () {
-            //resets variables when reset button is clicked
-            watts = 0;
-            kw_used = 0;
-            cost_per_day = 0;
-            cost_per_week = 0;
-            cost_per_month = 0;
-            cost_per_year = 0;
-            document.getElementById('kilowatts_used').innerHTML = "";
-            document.getElementById('cost_day').innerHTML = "";
-            document.getElementById('cost_week').innerHTML = "";
-            document.getElementById('cost_month').innerHTML = "";
-            document.getElementById('cost_year').innerHTML = "";
-        }
     </script>
 
     <script type="text/javascript">
@@ -151,10 +137,6 @@
                     <br>
                     <span class="label">Total cost per year is:</span>
                     <div id="cost_year" class="results_box"></div>
-                </div>
-                <div class="element">
-                    <br>
-                    <input type="reset" value="Reset Form" class="reset" />
                 </div>
             </div>
         </form>
