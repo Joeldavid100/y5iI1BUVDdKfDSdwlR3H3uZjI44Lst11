@@ -1,5 +1,6 @@
 How to run our program: 
 - Download the file "sustainable_design.html" and open it with any modern browser.
+- Go directly to https://joeldavid100.github.io/y5iI1BUVDdKfDSdwlR3H3uZjI44Lst11/
 
 Took https://www.w3schools.com/howto/howto_js_popup.asp as reference to create pop ups.
 
