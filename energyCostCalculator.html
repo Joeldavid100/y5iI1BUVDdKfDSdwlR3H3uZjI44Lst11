@@ -85,7 +85,7 @@
 
 <body>
     <div class=heading>
-        <h2>Energy Calculator</h2>
+        <h2>Energy Cost Calculator</h2>
     </div>
 
     <div id="energy-calculator">
@@ -100,21 +100,12 @@
                     <option value="800">Toaster</option>
                     <option value="60">Fan</option>
                     <option value="300">Computer and printer</option>
-                    <option value="150">Games Consoles (PS3 / X Box)</option>
-                    <option value="16">Games Console (Wii)</option>
-                    <option value="70">Television 19 inch</option>
-                    <option value="150">Television 25 inch</option>
-                    <option value="450">Hoover</option>
-                    <option value="500">Fridge/Freezer</option>
-                    <option value="3500">Tumble Dryer</option>
-                    <option value="700">Washing Machine</option>
-                    <option value="1350">Dishwasher</option>
-                    <option value="11">Energy Saving Light Bulb</option>
-                    <option value="23">Digital TV Box</option>
-                    <option value="1000">Hair Dryer</option>
-                    <option value="123">Straighteners</option>
-                    <option value="35">Stereo System</option>
-                    <option value="35">DVD Player</option>
+                    <option value="50">VCR</option>
+                    <option value="100">Black and white tv</option>
+                    <option value="301">Color TV</option>
+                    <option value="1500">Stove</option>
+                    <option value="60">Incandescent lamp</option>
+                    <option value="32">Fluorescent lamp</option>
                 </select>
             </div>
 
@@ -128,31 +119,37 @@
             </div>
             <div class="element">
                 <br>
-                <input type="submit" value="Get Costs" class="submit" tabindex="3" />
+                <input type="submit" value="Get Costs (Costs Shown in HN Lempiras)" class="submit" tabindex="3" />
             </div>
             <!-- results -->
             <div id="results">
+                <br>
                 <div class="element">
                     <span class="label">Kilowatts used per day:</span>
                     <div id="kilowatts_used" class="results_box"></div>
                 </div>
                 <div class="element">
+                    <br>
                     <span class="label">Total cost per day is:</span>
                     <div id="cost_day" class="results_box"></div>
                 </div>
                 <div class="element">
+                    <br>
                     <span class="label">Total cost per week is:</span>
                     <div id="cost_week" class="results_box"></div>
                 </div>
                 <div class="element">
+                    <br>
                     <span class="label">Total cost per month is:</span>
                     <div id="cost_month" class="results_box"></div>
                 </div>
                 <div class="element">
+                    <br>
                     <span class="label">Total cost per year is:</span>
                     <div id="cost_year" class="results_box"></div>
                 </div>
                 <div class="element">
+                    <br>
                     <input type="reset" value="Reset Form" class="reset" />
                 </div>
             </div>
