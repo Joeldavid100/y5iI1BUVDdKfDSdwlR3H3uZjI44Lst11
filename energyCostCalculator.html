@@ -4,9 +4,13 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@500&family=Titillium+Web:wght@300&display=swap"
         rel="stylesheet">
+
     <link rel="stylesheet" href="styles.css">
+
     <title>Energy Calculator</title>
+    
     <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+    
     <script>
         jQuery.fn.validateForm = function () {
             var hours_used = parseInt($('#hours').val());
@@ -37,7 +41,7 @@
             var kilowatt = watts / 1000;
             var kw_used = hours_used * kilowatt;
 
-            //calculate costs
+            //cost calculation
             cost_per_day = kw_used * lpsPerKW;
             cost_per_week = cost_per_day * 7;
             cost_per_month = cost_per_week * 4;
